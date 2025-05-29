@@ -1,18 +1,24 @@
 
 import express from "express";
-import { carRoutes } from "./routes/car.routes";
-import { customerRoutes } from "./routes/user.route";
-import { locationRoutes } from "./routes/location.routes";
+import customer from "./customer/customer.routes";
+import reservation from "./reservation/reservation.routes";
+import booking from "./booking/booking.routes";
+import carRoutes from "./car/car.routes";
+import locationRoutes from "./location/location.routes";
+
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8081;
 
 app.use(express.json());
 
 // Use routes
-app.use("/cars", carRoutes);
-app.use("/customers", customerRoutes);
-app.use("/locations", locationRoutes);
+customer(app);
+reservation(app);
+booking(app);
+carRoutes(app);
+locationRoutes(app);
+
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);

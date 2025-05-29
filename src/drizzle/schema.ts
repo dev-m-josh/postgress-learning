@@ -7,6 +7,7 @@ export const CustomerTable = pgTable("customer", {
     firstName: varchar("FirstName", { length: 50 }).notNull(),
     lastName: varchar("LastName", { length: 50 }).notNull(),
     email: varchar("Email", { length: 100 }).notNull().unique(),
+    password: varchar("Password", { length: 100 }).notNull(),
     phoneNumber: text("PhoneNumber"),
     address: varchar("Address", { length: 255 }),
 });
