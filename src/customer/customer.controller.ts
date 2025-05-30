@@ -24,15 +24,6 @@ export const getCustomerById = async (req: Request, res: Response) => {
     }
 };
 
-export const createCustomer = async (req: Request, res: Response) => {
-    try {
-        const newCustomer = await CustomerService.createCustomer(req.body);
-        res.status(201).json(newCustomer);
-    } catch (error) {
-        res.status(500).json({ error: "Failed to create customer" });
-    }
-};
-
 export const updateCustomer = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {

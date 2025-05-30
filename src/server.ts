@@ -5,6 +5,7 @@ import reservation from "./reservation/reservation.routes";
 import booking from "./booking/booking.routes";
 import carRoutes from "./car/car.routes";
 import locationRoutes from "./location/location.routes";
+import auth from "./auth/auth.routes";
 
 
 const app = express();
@@ -13,6 +14,7 @@ const port = process.env.PORT || 8081;
 app.use(express.json());
 
 // Use routes
+auth(app);
 customer(app);
 reservation(app);
 booking(app);

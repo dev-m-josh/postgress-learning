@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import { TSCustomerInsert } from "../drizzle/schema";
 import bcrypt from "bcryptjs";
 
-const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
+const JWT_SECRET = process.env.JWT_SECRET || "youcanguessit";
 
 export const registerUser = async (data: Omit<TSCustomerInsert, "customerID">) => {
     const hashedPassword = await bcrypt.hash(data.password, 10);
