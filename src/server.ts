@@ -10,7 +10,6 @@ import payment from "./payment/payment.routes";
 import maintenanceRoutes from "./mantainance/mantainace.route";
 import insurance from "./insurance/insurance.routes";
 
-
 const app = express();
 const port = process.env.PORT || 3000;
 

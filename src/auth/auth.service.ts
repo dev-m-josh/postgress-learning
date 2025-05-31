@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import jwt from "jsonwebtoken";
 import { TSCustomerInsert } from "../drizzle/schema";
 import bcrypt from "bcryptjs";
+import { sendWelcomeEmail } from "../mailer/mailer";
 
 const JWT_SECRET = process.env.JWT_SECRET || "youcanguessit";
 
@@ -26,6 +27,8 @@ export const registerUser = async (data: Omit<TSCustomerInsert, "customerID">) =
         isAdmin: user.isAdmin
     }, JWT_SECRET,
         { expiresIn: "1d" });
+
+    await sendWelcomeEmail(user.email, user.firstName);
 
     return { user, token };
 };
