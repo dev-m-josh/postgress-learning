@@ -13,13 +13,19 @@ export const registerUser = async (data: Omit<TSCustomerInsert, "customerID">) =
     const newCustomer: TSCustomerInsert = {
         ...data,
         password: hashedPassword,
+        isAdmin: data.isAdmin ?? false
     };
 
     const result = await db.insert(CustomerTable).values(newCustomer).returning();
 
     const user = result[0];
 
-    const token = jwt.sign({ userId: user.customerID, email: user.email }, JWT_SECRET, { expiresIn: "1d" });
+    const token = jwt.sign({
+        userId: user.customerID,
+        email: user.email,
+        isAdmin: user.isAdmin
+    }, JWT_SECRET,
+        { expiresIn: "1d" });
 
     return { user, token };
 };

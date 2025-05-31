@@ -42,3 +42,4 @@ const maintenanceRoutes = (app: Express) => {
         }
     });
 };
+export default maintenanceRoutes;

@@ -10,6 +10,7 @@ export const CustomerTable = pgTable("customer", {
     password: varchar("Password", { length: 100 }).notNull(),
     phoneNumber: text("PhoneNumber"),
     address: varchar("Address", { length: 255 }),
+    isAdmin: boolean("IsAdmin").notNull().default(false),
 });
 
 // Location Table

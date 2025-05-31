@@ -1,5 +1,5 @@
-import  db  from "../drizzle/db"; // adjust this import to your actual db client
-import { CustomerTable, TSCustomerInsert } from "../drizzle/schema"; // adjust the path if needed
+import  db  from "../drizzle/db";
+import { CustomerTable, TSCustomerInsert } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 export const getAllCustomers = async () => {
     return await db.select().from(CustomerTable);
@@ -12,7 +12,10 @@ export const getCustomerById = async (id: number) => {
 };
 
 export const createCustomer = async (data: TSCustomerInsert) => {
-    const result = await db.insert(CustomerTable).values(data).returning();
+    const result = await db.insert(CustomerTable).values({
+        ...data,
+        isAdmin: data.isAdmin || false,
+    }).returning();
     return result[0];
 };
 

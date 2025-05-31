@@ -1,7 +1,6 @@
 import db from "../drizzle/db";
 import { PaymentTable, TSPaymentInsert } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
-import { drizzle } from 'drizzle-orm/node-postgres';
 
 export const getAllPayments = async () => {
     return await db.select().from(PaymentTable);

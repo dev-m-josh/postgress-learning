@@ -8,8 +8,9 @@ const customer = (app: Express) => {
             try {
                 await CustomerController.getAllCustomers(req, res);
             } catch (error) {
-                next(error)
-            }}
+                next(error);
+            }
+        }
     );
 
     app.route("/customer/:id").get(
@@ -17,36 +18,29 @@ const customer = (app: Express) => {
             try {
                 await CustomerController.getCustomerById(req, res);
             } catch (error) {
-                next(error)
-            }}
-    )
+                next(error);
+            }
+        }
+    );
 
     app.route("/customer/:id").put(
         async (req, res, next) => {
             try {
                 await CustomerController.updateCustomer(req, res);
             } catch (error) {
-                next(error)
-            }}
-    )
+                next(error);
+            }
+        }
+    );
 
     app.route("/customer/:id").delete(
         async (req, res, next) => {
             try {
                 await CustomerController.deleteCustomer(req, res);
             } catch (error) {
-                next(error)
-            }}
-    )
-
-    app.route("/customer").post(
-        async (req, res, next) => {
-            try {
-                await CustomerController.createCustomer(req, res);
-            } catch (error) {
-                next(error)
-            }}
-    )
-}
-
+                next(error);
+            }
+        }
+    );
+};
 export default customer;
