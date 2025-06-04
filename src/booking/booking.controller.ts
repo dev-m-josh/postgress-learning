@@ -1,5 +1,9 @@
 import { Request, Response } from "express";
 import * as BookingService from "../booking/booking.service";
+import db from "../drizzle/db";
+import { BookingsTable, CustomerTable, CarTable, LocationTable } from "../drizzle/schema";
+import { eq } from "drizzle-orm";
+import { drizzle } from 'drizzle-orm/node-postgres';
 
 export const getAllBookings = async (_req: Request, res: Response) => {
     try {
@@ -55,5 +59,18 @@ export const deleteBooking = async (req: Request, res: Response) => {
         res.json({ message: "Booking deleted successfully" });
     } catch (error) {
         res.status(500).json({ error: "Failed to delete booking" });
+    }
+};
+
+export const getBookingDetailsById = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        const bookingDetails = await BookingService.getBookingDetailsById(Number(id));
+        if (!bookingDetails) {
+            return res.status(404).json({ error: "Booking details not found" });
+        }
+        res.json(bookingDetails);
+    } catch (error) {
+        res.status(500).json({ error: "Failed to fetch booking details" });
     }
 };

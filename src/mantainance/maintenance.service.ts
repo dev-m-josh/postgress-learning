@@ -13,7 +13,7 @@ export const getMaintenanceById = async (id: number) => {
 
 export const createMaintenance = async (data: TSMaintenanceInsert) => {
     const result = await db.insert(MaintenanceTable).values(data).returning();
-    return result[0];
+    return result;
 };
 
 export const updateMaintenance = async (id: number, data: Partial<TSMaintenanceInsert>) => {
