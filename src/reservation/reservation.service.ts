@@ -1,5 +1,5 @@
 import db from "../drizzle/db";
-import { ReservationTable, TSReservationInsert } from "../drizzle/schema";
+import { ReservationTable, TSReservationInsert, CarTable, CustomerTable } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 
 export const getAllReservations = async () => {
@@ -28,4 +28,22 @@ export const updateReservation = async (id: number, data: Partial<TSReservationI
 export const deleteReservation = async (id: number) => {
     const result = await db.delete(ReservationTable).where(eq(ReservationTable.reservationID, id)).returning();
     return result.length > 0;
+};
+
+export const getAllReservationsWithDetails = async () => {
+    const results = await db
+        .select({
+            reservation: ReservationTable,
+            customer: CustomerTable,
+            car: CarTable,
+        })
+        .from(ReservationTable)
+        .leftJoin(CustomerTable as any, eq(ReservationTable.customerID, CustomerTable.customerID))
+        .leftJoin(CarTable as any, eq(ReservationTable.carID, CarTable.carID));
+
+    return results.map((row) => ({
+        ...row.reservation as any,
+        customer: row.customer,
+        car: row.car,
+    }));
 };

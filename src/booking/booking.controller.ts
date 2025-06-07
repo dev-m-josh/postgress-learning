@@ -74,3 +74,16 @@ export const getBookingDetailsById = async (req: Request, res: Response) => {
         res.status(500).json({ error: "Failed to fetch booking details" });
     }
 };
+
+export const getBookingPaymentById = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        const bookingDetails = await BookingService.getBookingWithPayment(Number(id));
+        if (!bookingDetails) {
+            return res.status(404).json({ error: "Booking details not found" });
+        }
+        res.json(bookingDetails);
+    } catch (error) {
+        res.status(500).json({ error: "Failed to fetch booking details" });
+    }
+};

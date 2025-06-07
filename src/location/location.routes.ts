@@ -41,6 +41,14 @@ const locationRoutes = (app: Express) => {
             next(error);
         }
     });
+
+    app.route("/location/:id/cars").get(async (req, res, next) =>{
+            try {
+            await LocationController.getLocationDetails(req, res);
+        } catch (error) {
+            next(error);
+        }
+    })
 };
 
 export default locationRoutes;

@@ -49,3 +49,38 @@ export const deleteCustomer = async (req: Request, res: Response) => {
         res.status(500).json({ error: "Failed to delete customer" });
     }
 };
+
+export const getCustomerDetails = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        const customerDetails = await CustomerService.getCustomerDetails(Number(id));
+        if (!customerDetails) {
+            return res.status(404).json({ error: "Customer not found" });
+        }
+        res.json(customerDetails);
+    } catch (error) {
+        console.error("Error fetching customer details:", error);
+        res.status(500).json({ error: "Failed to fetch customer details" });
+    }
+};
+
+export const getCustomerReservations = async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+
+    if (isNaN(id)) {
+        return res.status(400).json({ error: "Invalid customer ID" });
+    }
+
+    try {
+        const data = await CustomerService.getCustomerReservationDetails(id);
+
+        if (!data) {
+            return res.status(404).json({ error: "Customer not found" });
+        }
+
+        res.json(data);
+    } catch (error) {
+        console.error("Error fetching customer reservation details:", error);
+        res.status(500).json({ error: "Failed to fetch customer reservation details" });
+    }
+};

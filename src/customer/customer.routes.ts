@@ -42,5 +42,23 @@ const customer = (app: Express) => {
             }
         }
     );
+
+    app.route("/customer/:id/details").get(
+        async (req, res, next) => {
+            try {
+                await CustomerController.getCustomerDetails(req, res);
+            } catch (error) {
+                next(error)
+            }
+        }
+    )
+
+        app.route("/customer/:id/reservations").get(async (req, res, next) => {
+            try {
+                await CustomerController.getCustomerReservations(req, res);
+            } catch (error) {
+                next(error);
+            }
+        });
 };
 export default customer;

@@ -1,5 +1,5 @@
 import db from "../drizzle/db";
-import { LocationTable, TSLocationInsert, TSLocation } from "../drizzle/schema";
+import { LocationTable, TSLocationInsert, TSLocation, CarTable } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 
 // Get all locations
@@ -37,4 +37,26 @@ export const updateLocation = async (
 export const deleteLocation = async (id: number): Promise<boolean> => {
     const result = await db.delete(LocationTable).where(eq(LocationTable.locationID, id)).returning();
     return result.length > 0;
+};
+
+export const getLocationWithCars = async (locationID: number) => {
+    const results = await db
+        .select({
+            location: LocationTable,
+            car: CarTable,
+        })
+        .from(LocationTable)
+        .leftJoin(CarTable as any, eq(LocationTable.locationID, CarTable.locationID))
+        .where(eq(LocationTable.locationID, locationID));
+
+    if (results.length === 0) return {message: "No cars in this Location"};
+
+    const { location } = results[0];
+
+    const cars = results.map((row) => row.car).filter(Boolean);
+
+    return {
+        location,
+        cars,
+    };
 };

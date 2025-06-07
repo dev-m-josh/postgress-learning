@@ -57,3 +57,17 @@ export const deleteLocation = async (req: Request, res: Response) => {
         res.status(500).json({ error: "Failed to delete location" });
     }
 };
+
+export const getLocationDetails = async (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    try {
+        const locationData = await LocationService.getLocationWithCars(Number(id));
+        if (!locationData) {
+            return res.status(404).json({ error: "Location not found" });
+        }
+        res.json(locationData);
+    } catch (error) {
+        res.status(500).json({ error: "Failed to fetch location details" });
+    }
+};
