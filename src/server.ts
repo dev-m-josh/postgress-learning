@@ -1,5 +1,5 @@
-
 import express from "express";
+import { connectToDB } from "./drizzle/db";
 import customer from "./customer/customer.routes";
 import reservation from "./reservation/reservation.routes";
 import booking from "./booking/booking.routes";
@@ -26,6 +26,12 @@ payment(app);
 maintenanceRoutes(app);
 insurance(app);
 
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-});
+connectToDB()
+    .then(() => {
+        app.listen(port, () => {
+            console.log(`Server running on http://localhost:${port}`);
+        });
+    })
+    .catch((err) => {
+        console.error("Failed to connect to the database:", err);
+    });

@@ -1,7 +1,6 @@
-import db from "../drizzle/db"
+import {db} from "../drizzle/db"
 import { CarTable, TSCarInsert, TSCar, BookingsTable } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
-import { desc, sql } from "drizzle-orm";
 
 export const getAllCars = async (): Promise<TSCar[]> => {
     return await db.select().from(CarTable);

@@ -15,7 +15,7 @@ export const getCarById = async (req: Request, res: Response) => {
     try {
         const car = await CarService.getCarById(Number(id));
         if (!car) {
-            return res.status(404).json({ error: "Car not found" });
+            return res.status(404).json({ message: "Car not found" });
         }
         res.json(car);
     } catch (error) {

@@ -1,24 +1,22 @@
 import "dotenv/config";
-
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Client } from "pg";
 import * as schema from "./schema";
 
-export const client = new Client({
+const client = new Client({
     connectionString: process.env.Database_URL as string,
 });
 
-const main = async () => {
+let db = drizzle(client, { schema, logger: true });
+
+export const connectToDB = async () => {
     await client.connect();
+    console.log("Connected to the database");
 };
-main()
-    .then(() => {
-        console.log("Connected to the database");
-    })
-    .catch((error) => {
-        console.error("Error connecting to the database:", error);
-    });
 
-const db = drizzle(client, { schema, logger: true });
+export const disconnectDB = async () => {
+    await client.end();
+    console.log("Disconnected from the database");
+};
 
-export default db;
+export { db };

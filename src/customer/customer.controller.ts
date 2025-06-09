@@ -3,10 +3,12 @@ import * as CustomerService from "./customer.service";
 
 
 export const getAllCustomers = async (_req: Request, res: Response) => {
+
     try {
         const customers = await CustomerService.getAllCustomers();
         res.json(customers);
     } catch (error) {
+        console.error("Error fetching customers:", error);
         res.status(500).json({ error: "Failed to fetch customers" });
     }
 };
@@ -20,6 +22,7 @@ export const getCustomerById = async (req: Request, res: Response) => {
         }
         res.json(customer);
     } catch (error) {
+        console.error("Error fetching customer:", error);
         res.status(500).json({ error: "Failed to fetch customer" });
     }
 };
@@ -33,6 +36,7 @@ export const updateCustomer = async (req: Request, res: Response) => {
         }
         res.json(updated);
     } catch (error) {
+        console.error("Error updating customer:", error);
         res.status(500).json({ error: "Failed to update customer" });
     }
 };
@@ -46,6 +50,7 @@ export const deleteCustomer = async (req: Request, res: Response) => {
         }
         res.json({ message: "Customer deleted successfully" });
     } catch (error) {
+        console.error("Error deleting customer:", error);
         res.status(500).json({ error: "Failed to delete customer" });
     }
 };

@@ -6,6 +6,7 @@ export const getAllInsuranceRecords = async (_req: Request, res: Response) => {
         const records = await InsuranceService.getAllInsuranceRecords();
         res.json(records);
     } catch (error) {
+        console.log("Error fetching insurance records:",error);
         res.status(500).json({ error: "Failed to fetch insurance records" });
     }
 };
@@ -19,6 +20,7 @@ export const getInsuranceById = async (req: Request, res: Response) => {
         }
         res.json(record);
     } catch (error) {
+        console.log("Error fetching insurance record:",error);
         res.status(500).json({ error: "Failed to fetch insurance record" });
     }
 };
@@ -28,6 +30,7 @@ export const createInsurance = async (req: Request, res: Response) => {
         const newRecord = await InsuranceService.createInsurance(req.body);
         res.status(201).json(newRecord);
     } catch (error) {
+        console.log("Error creating insurance record:",error);
         res.status(500).json({ error: "Failed to create insurance record" });
     }
 };
@@ -41,6 +44,7 @@ export const updateInsurance = async (req: Request, res: Response) => {
         }
         res.json(updated);
     } catch (error) {
+        console.log("Error updating insurance record:",error);
         res.status(500).json({ error: "Failed to update insurance record" });
     }
 };
@@ -54,6 +58,7 @@ export const deleteInsurance = async (req: Request, res: Response) => {
         }
         res.json({ message: "Insurance record deleted successfully" });
     } catch (error) {
+        console.log("Error deleting insurance record:",error);
         res.status(500).json({ error: "Failed to delete insurance record" });
     }
 };

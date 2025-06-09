@@ -20,7 +20,7 @@ const car = (app: Express) => {
         }
     });
 
-    app.route("/cars").post(authenticateToken, requireAdmin, async (req, res, next) => {
+    app.route("/cars").post(authenticateToken as any, requireAdmin as any, async (req, res, next) => {
         try {
             await CarController.createCar(req, res);
         } catch (error) {
@@ -28,7 +28,7 @@ const car = (app: Express) => {
         }
     });
 
-    app.route("/cars/:id").put(authenticateToken, requireAdmin, async (req, res, next) => {
+    app.route("/cars/:id").put(authenticateToken as any, requireAdmin as any, async (req, res, next) => {
         try {
             await CarController.updateCar(req, res);
         } catch (error) {
@@ -36,7 +36,7 @@ const car = (app: Express) => {
         }
     });
 
-    app.route("/cars/:id").delete(authenticateToken, requireAdmin, async (req, res, next) => {
+    app.route("/cars/:id").delete(authenticateToken as any, requireAdmin as any, async (req, res, next) => {
         try {
             await CarController.deleteCar(req, res);
         } catch (error) {

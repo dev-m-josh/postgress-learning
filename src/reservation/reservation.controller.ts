@@ -6,6 +6,7 @@ export const getAllReservations = async (_req: Request, res: Response) => {
         const reservations = await ReservationService.getAllReservations();
         res.json(reservations);
     } catch (error) {
+        console.error("Error fetching reservations:", error);
         res.status(500).json({ error: "Failed to fetch reservations" });
     }
 };
@@ -19,6 +20,7 @@ export const getReservationById = async (req: Request, res: Response) => {
         }
         res.json(reservation);
     } catch (error) {
+        console.error("Error fetching reservation:", error);
         res.status(500).json({ error: "Failed to fetch reservation" });
     }
 };
@@ -28,6 +30,7 @@ export const createReservation = async (req: Request, res: Response) => {
         const newReservation = await ReservationService.createReservation(req.body);
         res.status(201).json(newReservation);
     } catch (error) {
+        console.error("Error creating reservation:", error);
         res.status(500).json({ error: "Failed to create reservation" });
     }
 };
@@ -41,6 +44,7 @@ export const updateReservation = async (req: Request, res: Response) => {
         }
         res.json(updated);
     } catch (error) {
+        console.error("Error updating reservation:", error);
         res.status(500).json({ error: "Failed to update reservation" });
     }
 };
@@ -54,6 +58,7 @@ export const deleteReservation = async (req: Request, res: Response) => {
         }
         res.json({ message: "Reservation deleted successfully" });
     } catch (error) {
+        console.error("Error deleting reservation:", error);
         res.status(500).json({ error: "Failed to delete reservation" });
     }
 };

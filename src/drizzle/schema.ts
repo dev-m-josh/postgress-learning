@@ -11,6 +11,8 @@ export const CustomerTable = pgTable("customer", {
     phoneNumber: text("PhoneNumber"),
     address: varchar("Address", { length: 255 }),
     isAdmin: boolean("IsAdmin").notNull().default(false),
+    verificationCode: varchar("verificationCode", { length: 10 }),
+    isVerified: boolean("isVerified").default(false).notNull(),
 });
 
 // Location Table

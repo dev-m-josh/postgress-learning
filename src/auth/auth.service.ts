@@ -1,20 +1,25 @@
-import db from "../drizzle/db";
+import {db} from "../drizzle/db";
 import { CustomerTable } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 import jwt from "jsonwebtoken";
 import { TSCustomerInsert } from "../drizzle/schema";
 import bcrypt from "bcryptjs";
 import { sendWelcomeEmail } from "../mailer/mailer";
+import crypto from "crypto";
 
 const JWT_SECRET = process.env.JWT_SECRET || "youcanguessit";
 
 export const registerUser = async (data: Omit<TSCustomerInsert, "customerID">) => {
     const hashedPassword = await bcrypt.hash(data.password, 10);
 
+    const verificationCode = crypto.randomBytes(3).toString("hex").toUpperCase();
+
     const newCustomer: TSCustomerInsert = {
         ...data,
         password: hashedPassword,
-        isAdmin: data.isAdmin ?? false
+        isAdmin: data.isAdmin ?? false,
+        verificationCode,
+        isVerified: false
     };
 
     const result = await db.insert(CustomerTable).values(newCustomer).returning();
@@ -28,7 +33,7 @@ export const registerUser = async (data: Omit<TSCustomerInsert, "customerID">) =
     }, JWT_SECRET,
         { expiresIn: "1d" });
 
-    await sendWelcomeEmail(user.email, user.firstName);
+    await sendWelcomeEmail(user.email, user.firstName, verificationCode);
 
     return { user, token };
 };

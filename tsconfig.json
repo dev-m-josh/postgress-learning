@@ -10,8 +10,9 @@
         "forceConsistentCasingInFileNames": true,
         /* Type Checking */
         "strict": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "isolatedModules": true
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "__tests__"],
     "exclude": ["node_modules", "**/*.spec.ts"]
 }

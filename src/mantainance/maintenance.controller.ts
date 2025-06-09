@@ -6,6 +6,7 @@ export const getAllMaintenanceRecords = async (_req: Request, res: Response) => 
         const records = await MaintenanceService.getAllMaintenanceRecords();
         res.json(records);
     } catch (error) {
+        console.error("Error fetching maintenance records:", error);
         res.status(500).json({ error: "Failed to fetch maintenance records" });
     }
 };
@@ -19,6 +20,7 @@ export const getMaintenanceById = async (req: Request, res: Response) => {
         }
         res.json(record);
     } catch (error) {
+        console.error("Error fetching maintenance record:", error);
         res.status(500).json({ error: "Failed to fetch maintenance record" });
     }
 };
@@ -28,6 +30,7 @@ export const createMaintenance = async (req: Request, res: Response) => {
         const newRecord = await MaintenanceService.createMaintenance(req.body);
         res.status(201).json(newRecord);
     } catch (error) {
+        console.error("Error creating maintenance record:", error);
         res.status(500).json({ error: "Failed to create maintenance record" });
     }
 };
@@ -41,6 +44,7 @@ export const updateMaintenance = async (req: Request, res: Response) => {
         }
         res.json(updated);
     } catch (error) {
+        console.error("Error updating maintenance record:", error);
         res.status(500).json({ error: "Failed to update maintenance record" });
     }
 };
@@ -54,6 +58,7 @@ export const deleteMaintenance = async (req: Request, res: Response) => {
         }
         res.json({ message: "Maintenance record deleted successfully" });
     } catch (error) {
+        console.error("Error deleting maintenance record:", error);
         res.status(500).json({ error: "Failed to delete maintenance record" });
     }
 };
