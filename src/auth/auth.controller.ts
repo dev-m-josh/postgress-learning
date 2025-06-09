@@ -26,3 +26,14 @@ export const login = async (req: Request, res: Response) => {
         res.status(401).json({ error: error.message || "Login failed" });
     }
 };
+
+export const verify = async (req: Request, res: Response) => {
+    try {
+        const { email, code } = req.body;
+        const result = await AuthService.verifyUser(email, code);
+        res.status(200).json(result);
+    } catch (error: any) {
+        console.error("Verification failed:", error);
+        res.status(401).json({ error: error.message || "Verification failed" });
+    }
+};

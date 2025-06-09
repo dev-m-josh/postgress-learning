@@ -58,3 +58,27 @@ export const loginUser = async (email: string, password: string) => {
 
     return { user, token };
 };
+
+export const verifyUser = async (email: string, code: string) => {
+    const user = await db
+        .select()
+        .from(CustomerTable)
+        .where(eq(CustomerTable.email, email))
+        .then((res) => res[0]);
+
+    if (!user) {
+        throw new Error("User not found");
+    }
+
+    if (user.isVerified) {
+        throw new Error("User already verified");
+    }
+
+    if (user.verificationCode !== code) {
+        throw new Error("Invalid verification code");
+    }
+
+    await db.update(CustomerTable).set({ isVerified: true }).where(eq(CustomerTable.email, email));
+
+    return { message: "Account verified successfully" };
+};
