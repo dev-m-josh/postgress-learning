@@ -4,8 +4,13 @@ const tsJestTransformCfg = createDefaultPreset().transform;
 
 /** @type {import("jest").Config} **/
 module.exports = {
-  testEnvironment: "node",
-  transform: {
-    ...tsJestTransformCfg,
-  },
+    testEnvironment: "node",
+    transform: {
+        ...tsJestTransformCfg,
+    },
+    coveragePathIgnorePatterns: [
+        "/node_modules/",
+        "src/drizzle/db.ts",
+        "src/drizzle/schema.ts",
+    ],
 };

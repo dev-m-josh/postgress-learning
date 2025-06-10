@@ -1,7 +1,7 @@
 import request from "supertest";
 import express from "express";
-import * as CarService from "../car/car.service";
-import { createCar, getAllCars, getCarById, updateCar, deleteCar } from "../car/car.controller";
+import * as CarService from "../../car/car.service";
+import { createCar, getAllCars, getCarById, updateCar, deleteCar } from "../../car/car.controller";
 
 // Step 1: Set up a minimal Express app for testing
 const app = express();
@@ -13,7 +13,7 @@ app.put("/cars/:id", updateCar as any);
 app.delete("/cars/:id", deleteCar as any);
 
 // Step 2: Mock the car service
-jest.mock("../car/car.service");
+jest.mock("../../car/car.service");
 
 describe("Car Controller", () => {
     //testing getting all cars

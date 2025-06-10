@@ -1,4 +1,4 @@
-import db from "../drizzle/db";
+import {db} from "../drizzle/db";
 import { BookingsTable, TSBookingInsert,CarTable, LocationTable, PaymentTable } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 import { CustomerTable } from "../drizzle/schema";

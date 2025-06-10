@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import * as BookingService from "../booking/booking.service";
-import db from "../drizzle/db";
 import { BookingsTable, CustomerTable, CarTable, LocationTable } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 import { drizzle } from 'drizzle-orm/node-postgres';
@@ -10,6 +9,7 @@ export const getAllBookings = async (_req: Request, res: Response) => {
         const bookings = await BookingService.getAllBookings();
         res.json(bookings);
     } catch (error) {
+        console.log("Error fetching bookings:",error);
         res.status(500).json({ error: "Failed to fetch bookings" });
     }
 };
