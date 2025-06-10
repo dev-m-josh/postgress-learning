@@ -16,6 +16,10 @@ jest.mock("../customer/customer.service");
 
 // Step 3: Test the controller
 describe("Customer Controller", () => {
+    beforeAll(() => {
+        jest.spyOn(console, "error").mockImplementation(() => {});
+    });
+
     //testing getting all customers
     test("GET /customer should return all customers", async () => {
         (CustomerService.getAllCustomers as jest.Mock).mockResolvedValue([
@@ -109,8 +113,32 @@ describe("Customer Controller", () => {
             expect(response.status).toBe(404);
             expect(response.body).toEqual({ error: "Customer not found" });
         }
+    });
 
-    })
+    //testing if an error occured
+    test("GET /customer/:id should return 500 if an error occurs", async () => {
+        if ((CustomerService.getAllCustomers as jest.Mock).mockRejectedValue(new Error("Failed to fetch customers"))) {
+            const response = await request(app).get("/customer");
+            expect(response.status).toBe(500);
+            expect(response.body).toEqual({ error: "Failed to fetch customers" });
+
+        }
+        if ((CustomerService.getCustomerById as jest.Mock).mockRejectedValue(new Error("Failed to fetch customer"))) {
+            const response = await request(app).get("/customer/999");
+            expect(response.status).toBe(500);
+            expect(response.body).toEqual({ error: "Failed to fetch customer" });
+        }
+        if((CustomerService.updateCustomer as jest.Mock).mockRejectedValue(new Error("Failed to update customer"))){
+            const response = await request(app).put("/customer/999");
+            expect(response.status).toBe(500);
+            expect(response.body).toEqual({ error: "Failed to update customer" });
+        }
+        if((CustomerService.deleteCustomer as jest.Mock).mockRejectedValue(new Error("Failed to delete customer"))){
+            const response = await request(app).delete("/customer/999");
+            expect(response.status).toBe(500);
+            expect(response.body).toEqual({ error: "Failed to delete customer" });
+        }
+    });
 
     //testing updating a customer
     test("PUT /customer/:id should update a customer", async () => {

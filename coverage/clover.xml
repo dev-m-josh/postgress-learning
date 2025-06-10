@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1749457978770" clover="3.2.0">
-  <project timestamp="1749457978770" name="All files">
-    <metrics statements="168" coveredstatements="108" conditionals="15" coveredconditionals="6" methods="41" coveredmethods="17" elements="224" coveredelements="131" complexity="0" loc="168" ncloc="168" packages="3" files="6" classes="6"/>
+<coverage generated="1749561695059" clover="3.2.0">
+  <project timestamp="1749561695059" name="All files">
+    <metrics statements="168" coveredstatements="124" conditionals="15" coveredconditionals="7" methods="41" coveredmethods="22" elements="224" coveredelements="153" complexity="0" loc="168" ncloc="168" packages="3" files="6" classes="6"/>
     <package name="car">
-      <metrics statements="52" coveredstatements="43" conditionals="7" coveredconditionals="3" methods="10" coveredmethods="5"/>
+      <metrics statements="52" coveredstatements="51" conditionals="7" coveredconditionals="4" methods="10" coveredmethods="10"/>
       <file name="car.controller.ts" path="/home/robert/Desktop/Dekut-Training-Folder/drizzle-orm/src/car/car.controller.ts">
         <metrics statements="35" coveredstatements="35" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="5"/>
         <line num="2" count="1" type="stmt"/>
@@ -43,64 +43,64 @@
         <line num="57" count="1" type="stmt"/>
       </file>
       <file name="car.service.ts" path="/home/robert/Desktop/Dekut-Training-Folder/drizzle-orm/src/car/car.service.ts">
-        <metrics statements="17" coveredstatements="8" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
+        <metrics statements="17" coveredstatements="16" conditionals="4" coveredconditionals="1" methods="5" coveredmethods="5"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
       </file>
     </package>
     <package name="customer">
-      <metrics statements="77" coveredstatements="38" conditionals="8" coveredconditionals="3" methods="13" coveredmethods="4"/>
+      <metrics statements="77" coveredstatements="46" conditionals="8" coveredconditionals="3" methods="13" coveredmethods="4"/>
       <file name="customer.controller.ts" path="/home/robert/Desktop/Dekut-Training-Folder/drizzle-orm/src/customer/customer.controller.ts">
-        <metrics statements="54" coveredstatements="28" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="4"/>
+        <metrics statements="54" coveredstatements="36" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="4"/>
         <line num="2" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
         <line num="20" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="21" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
         <line num="34" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="35" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
         <line num="48" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="49" count="1" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
@@ -169,32 +169,32 @@
       </file>
       <file name="schema.ts" path="/home/robert/Desktop/Dekut-Training-Folder/drizzle-orm/src/drizzle/schema.ts">
         <metrics statements="26" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="8"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="64" count="2" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="76" count="2" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="88" count="2" type="stmt"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="102" count="2" type="stmt"/>
-        <line num="108" count="2" type="stmt"/>
-        <line num="113" count="2" type="stmt"/>
-        <line num="125" count="2" type="stmt"/>
-        <line num="137" count="2" type="stmt"/>
-        <line num="150" count="2" type="stmt"/>
-        <line num="158" count="2" type="stmt"/>
-        <line num="166" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="78" count="3" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="90" count="3" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="104" count="3" type="stmt"/>
+        <line num="110" count="3" type="stmt"/>
+        <line num="115" count="3" type="stmt"/>
+        <line num="127" count="3" type="stmt"/>
+        <line num="139" count="3" type="stmt"/>
+        <line num="152" count="3" type="stmt"/>
+        <line num="160" count="3" type="stmt"/>
+        <line num="168" count="3" type="stmt"/>
       </file>
     </package>
   </project>

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.66% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/60</span>
+                <span class='fraction'>42/60</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.85% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>28/54</span>
+                <span class='fraction'>36/54</span>
             </div>
         
             
@@ -160,54 +160,54 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -255,8 +255,8 @@ export const getAllCustomers = async (_req: Request, res: Response) =&gt; {
         const customers = await CustomerService.getAllCustomers();
         res.json(customers);
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >        console.error("Error fetching customers:", error);</span>
-<span class="cstat-no" title="statement not covered" >        res.status(500).json({ error: "Failed to fetch customers" });</span>
+        console.error("Error fetching customers:", error);
+        res.status(500).json({ error: "Failed to fetch customers" });
     }
 };
 &nbsp;
@@ -269,8 +269,8 @@ export const getCustomerById = async (req: Request, res: Response) =&gt; {
         }
         res.json(customer);
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >        console.error("Error fetching customer:", error);</span>
-<span class="cstat-no" title="statement not covered" >        res.status(500).json({ error: "Failed to fetch customer" });</span>
+        console.error("Error fetching customer:", error);
+        res.status(500).json({ error: "Failed to fetch customer" });
     }
 };
 &nbsp;
@@ -283,8 +283,8 @@ export const updateCustomer = async (req: Request, res: Response) =&gt; {
         }
         res.json(updated);
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >        console.error("Error updating customer:", error);</span>
-<span class="cstat-no" title="statement not covered" >        res.status(500).json({ error: "Failed to update customer" });</span>
+        console.error("Error updating customer:", error);
+        res.status(500).json({ error: "Failed to update customer" });
     }
 };
 &nbsp;
@@ -297,8 +297,8 @@ export const deleteCustomer = async (req: Request, res: Response) =&gt; {
         }
         res.json({ message: "Customer deleted successfully" });
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >        console.error("Error deleting customer:", error);</span>
-<span class="cstat-no" title="statement not covered" >        res.status(500).json({ error: "Failed to delete customer" });</span>
+        console.error("Error deleting customer:", error);
+        res.status(500).json({ error: "Failed to delete customer" });
     }
 };
 &nbsp;
@@ -343,7 +343,7 @@ export const getCustomerReservations = <span class="fstat-no" title="function no
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-09T08:32:58.731Z
+                at 2025-06-10T13:21:35.030Z
             </div>
         <script src="../prettify.js"></script>
         <script>
