@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for car/car.controller.ts</title>
+    <title>Code coverage report for insurance.controller.ts</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">car</a> car.controller.ts</h1>
+        <h1><a href="index.html">All files</a> insurance.controller.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>40/40</span>
+                <span class='fraction'>45/45</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>35/35</span>
+                <span class='fraction'>40/40</span>
             </div>
         
             
@@ -122,7 +122,12 @@
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -130,6 +135,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,6 +150,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -152,6 +159,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,78 +174,85 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, Response } from "express";
-import * as CarService from "./car.service";
+import * as InsuranceService from "./insurance.service";
 &nbsp;
-export const getAllCars = async (_req: Request, res: Response) =&gt; {
+export const getAllInsuranceRecords = async (_req: Request, res: Response) =&gt; {
     try {
-        const cars = await CarService.getAllCars();
-        res.json(cars);
+        const records = await InsuranceService.getAllInsuranceRecords();
+        res.json(records);
     } catch (error) {
-        res.status(500).json({ error: "Failed to fetch cars" });
+        console.log("Error fetching insurance records:",error);
+        res.status(500).json({ error: "Failed to fetch insurance records" });
     }
 };
 &nbsp;
-export const getCarById = async (req: Request, res: Response) =&gt; {
+export const getInsuranceById = async (req: Request, res: Response) =&gt; {
     const { id } = req.params;
     try {
-        const car = await CarService.getCarById(Number(id));
-        if (!car) {
-            return res.status(404).json({ message: "Car not found" });
+        const record = await InsuranceService.getInsuranceById(Number(id));
+        if (!record) {
+            return res.status(404).json({ error: "Insurance record not found" });
         }
-        res.json(car);
+        res.json(record);
     } catch (error) {
-        res.status(500).json({ error: "Failed to fetch car" });
+        console.log("Error fetching insurance record:",error);
+        res.status(500).json({ error: "Failed to fetch insurance record" });
     }
 };
 &nbsp;
-export const createCar = async (req: Request, res: Response) =&gt; {
+export const createInsurance = async (req: Request, res: Response) =&gt; {
     try {
-        const newCar = await CarService.createCar(req.body);
-        res.status(201).json(newCar);
+        const newRecord = await InsuranceService.createInsurance(req.body);
+        res.status(201).json(newRecord);
     } catch (error) {
-        res.status(500).json({ error: "Failed to create car" });
+        console.log("Error creating insurance record:",error);
+        res.status(500).json({ error: "Failed to create insurance record" });
     }
 };
 &nbsp;
-export const updateCar = async (req: Request, res: Response) =&gt; {
+export const updateInsurance = async (req: Request, res: Response) =&gt; {
     const { id } = req.params;
     try {
-        const updated = await CarService.updateCar(Number(id), req.body);
+        const updated = await InsuranceService.updateInsurance(Number(id), req.body);
         if (!updated) {
-            return res.status(404).json({ error: "Car not found" });
+            return res.status(404).json({ error: "Insurance record not found" });
         }
         res.json(updated);
     } catch (error) {
-        res.status(500).json({ error: "Failed to update car" });
+        console.log("Error updating insurance record:",error);
+        res.status(500).json({ error: "Failed to update insurance record" });
     }
 };
 &nbsp;
-export const deleteCar = async (req: Request, res: Response) =&gt; {
+export const deleteInsurance = async (req: Request, res: Response) =&gt; {
     const { id } = req.params;
     try {
-        const deleted = await CarService.deleteCar(Number(id));
+        const deleted = await InsuranceService.deleteInsurance(Number(id));
         if (!deleted) {
-            return res.status(404).json({ error: "Car not found" });
+            return res.status(404).json({ error: "Insurance record not found" });
         }
-        res.json({ message: "Car deleted successfully" });
+        res.json({ message: "Insurance record deleted successfully" });
     } catch (error) {
-        res.status(500).json({ error: "Failed to delete car" });
+        console.log("Error deleting insurance record:",error);
+        res.status(500).json({ error: "Failed to delete insurance record" });
     }
 };
 &nbsp;</pre></td></tr></table></pre>
@@ -247,16 +262,16 @@ export const deleteCar = async (req: Request, res: Response) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-10T20:14:12.143Z
+                at 2025-06-11T03:39:12.947Z
             </div>
-        <script src="../prettify.js"></script>
+        <script src="prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
     </body>
 </html>
     
