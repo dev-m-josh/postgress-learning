@@ -24,6 +24,8 @@ beforeAll(() => {
     jest.spyOn(console, "log").mockImplementation(() => {});
 });
 
+jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Insurance Controller", () => {
     it("should fetch all insurance records", async () => {
         (InsuranceService.getAllInsuranceRecords as jest.Mock).mockResolvedValue([

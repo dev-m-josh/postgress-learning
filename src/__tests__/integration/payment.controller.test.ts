@@ -23,6 +23,8 @@ beforeAll(() => {
     jest.spyOn(console, "log").mockImplementation(() => {});
 });
 
+jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Payment Controller", () => {
     test("should get all payments", async () => {
         (PaymentService.getAllPayments as jest.Mock).mockResolvedValue([

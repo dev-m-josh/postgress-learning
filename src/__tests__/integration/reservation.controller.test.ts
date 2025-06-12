@@ -24,6 +24,8 @@ beforeAll(() => {
     jest.spyOn(console, "log").mockImplementation(() => {});
 });
 
+jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Reservation Controller", () => {
     test("should get all reservations", async () => {
         (ReservationService.getAllReservations as jest.Mock).mockResolvedValue([

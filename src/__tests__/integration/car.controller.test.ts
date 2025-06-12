@@ -15,6 +15,12 @@ app.delete("/cars/:id", deleteCar as any);
 // Step 2: Mock the car service
 jest.mock("../../car/car.service");
 
+beforeAll(() => {
+    jest.spyOn(console, "log").mockImplementation(() => {});
+});
+
+jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Car Controller", () => {
     //testing getting all cars
     test("GET /cars should return all cars", async () => {

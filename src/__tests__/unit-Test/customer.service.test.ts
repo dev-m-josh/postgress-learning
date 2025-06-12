@@ -1,10 +1,21 @@
-import { getAllCustomers, getCustomerById, updateCustomer, deleteCustomer } from "../../customer/customer.service";
+import {
+    getCustomerDetails,
+    getCustomerReservationDetails,
+    getAllCustomers,
+    getCustomerById,
+    updateCustomer,
+    deleteCustomer
+} from "../../customer/customer.service";
 import { db } from "../../drizzle/db";
 import { CustomerTable } from "../../drizzle/schema";
 
+
+// Mock Drizzle's chained methods
 jest.mock("../../drizzle/db", () => {
     const mockWhere = jest.fn();
-    const mockFrom = jest.fn().mockReturnValue({ where: mockWhere });
+    const mockLeftJoin2 = jest.fn().mockReturnValue({ where: mockWhere });
+    const mockLeftJoin1 = jest.fn().mockReturnValue({ leftJoin: mockLeftJoin2 });
+    const mockFrom = jest.fn().mockReturnValue({ leftJoin: mockLeftJoin1 });
 
     return {
         db: {
@@ -18,10 +29,43 @@ jest.mock("../../drizzle/db", () => {
     };
 });
 
-
-describe("Customer Service", () => {
+describe("Customer Service - Joins", () => {
     beforeEach(() => {
         jest.clearAllMocks();
+    });
+
+    it("should return customer details with bookings and cars", async () => {
+        const mockResult = [
+            {
+                customer: { customerID: 1, firstName: "Jane" },
+                booking: { bookingID: 100, carID: 5 },
+                car: { carID: 5, make: "Toyota" },
+            },
+        ];
+
+        const { db } = require("../../drizzle/db");
+        const mockWhere = db.select().from().leftJoin().leftJoin().where;
+        mockWhere.mockReturnValueOnce(mockResult);
+
+        const result = await getCustomerDetails(1);
+        expect(result).toEqual(mockResult);
+    });
+
+    it("should return customer details with reservations and cars", async () => {
+        const mockResult = [
+            {
+                customer: { customerID: 2, firstName: "Alex" },
+                reservation: { reservationID: 200, carID: 9 },
+                car: { carID: 9, make: "Honda" },
+            },
+        ];
+
+        const { db } = require("../../drizzle/db");
+        const mockWhere = db.select().from().leftJoin().leftJoin().where;
+        mockWhere.mockReturnValueOnce(mockResult);
+
+        const result = await getCustomerReservationDetails(2);
+        expect(result).toEqual(mockResult);
     });
 
     describe("getAllCustomers", () => {
@@ -149,9 +193,4 @@ describe("Customer Service", () => {
             expect(result).toBe(false);
         });
     });
-
-});
-
-afterEach(() => {
-    jest.clearAllMocks();
 });

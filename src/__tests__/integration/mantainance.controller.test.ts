@@ -26,6 +26,8 @@ beforeAll(() => {
     jest.spyOn(console, "log").mockImplementation(() => {});
 });
 
+jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Maintenance Controller", () => {
     //testing getting all maintenance records
     test("GET /maintenance should return all maintenance records", async () => {
