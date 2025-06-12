@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.09% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/22</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.05% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,62 +99,62 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {db} from "../drizzle/db";
 import { MaintenanceTable, TSMaintenanceInsert } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 &nbsp;
-export const getAllMaintenanceRecords = <span class="fstat-no" title="function not covered" >async </span>() =&gt; {
-<span class="cstat-no" title="statement not covered" >    return await db.select().from(MaintenanceTable);</span>
+export const getAllMaintenanceRecords = async () =&gt; {
+    return await db.select().from(MaintenanceTable);
 };
 &nbsp;
-export const getMaintenanceById = <span class="fstat-no" title="function not covered" >async </span>(id: number) =&gt; {
-    const result = <span class="cstat-no" title="statement not covered" >await db.select().from(MaintenanceTable).where(eq(MaintenanceTable.maintenanceID, id));</span>
-<span class="cstat-no" title="statement not covered" >    return result[0];</span>
+export const getMaintenanceById = async (id: number) =&gt; {
+    const result = await db.select().from(MaintenanceTable).where(eq(MaintenanceTable.maintenanceID, id));
+    return result[0];
 };
 &nbsp;
-export const createMaintenance = <span class="fstat-no" title="function not covered" >async </span>(data: TSMaintenanceInsert) =&gt; {
-    const result = <span class="cstat-no" title="statement not covered" >await db.insert(MaintenanceTable).values(data).returning();</span>
-<span class="cstat-no" title="statement not covered" >    return result;</span>
+export const createMaintenance = async (data: TSMaintenanceInsert) =&gt; {
+    const result = await db.insert(MaintenanceTable).values(data).returning();
+    return result;
 };
 &nbsp;
-export const updateMaintenance = <span class="fstat-no" title="function not covered" >async </span>(id: number, data: Partial&lt;TSMaintenanceInsert&gt;) =&gt; {
-    const result = <span class="cstat-no" title="statement not covered" >await db</span>
+export const updateMaintenance = async (id: number, data: Partial&lt;TSMaintenanceInsert&gt;) =&gt; {
+    const result = await db
         .update(MaintenanceTable)
         .set(data)
         .where(eq(MaintenanceTable.maintenanceID, id))
         .returning();
-<span class="cstat-no" title="statement not covered" >    return result[0];</span>
+    return result[0];
 };
 &nbsp;
-export const deleteMaintenance = <span class="fstat-no" title="function not covered" >async </span>(id: number) =&gt; {
-    const result = <span class="cstat-no" title="statement not covered" >await db.delete(MaintenanceTable).where(eq(MaintenanceTable.maintenanceID, id)).returning();</span>
-<span class="cstat-no" title="statement not covered" >    return result.length &gt; 0;</span>
+export const deleteMaintenance = async (id: number) =&gt; {
+    const result = await db.delete(MaintenanceTable).where(eq(MaintenanceTable.maintenanceID, id)).returning();
+    return result.length &gt; 0;
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -163,7 +163,7 @@ export const deleteMaintenance = <span class="fstat-no" title="function not cove
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-11T08:51:59.233Z
+                at 2025-06-12T09:39:48.827Z
             </div>
         <script src="prettify.js"></script>
         <script>

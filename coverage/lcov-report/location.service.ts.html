@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">48.38% </span>
+                <span class="strong">70.96% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/31</span>
+                <span class='fraction'>22/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">39.13% </span>
+                <span class="strong">60.86% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/23</span>
+                <span class='fraction'>14/23</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -167,7 +167,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -176,13 +176,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,8 +228,8 @@ export const deleteLocation = <span class="fstat-no" title="function not covered
 <span class="cstat-no" title="statement not covered" >    return result.length &gt; 0;</span>
 };
 &nbsp;
-export const getLocationWithCars = <span class="fstat-no" title="function not covered" >async </span>(locationID: number) =&gt; {
-    const results = <span class="cstat-no" title="statement not covered" >await db</span>
+export const getLocationWithCars = async (locationID: number) =&gt; {
+    const results = await db
         .select({
             location: LocationTable,
             car: CarTable,
@@ -238,13 +238,13 @@ export const getLocationWithCars = <span class="fstat-no" title="function not co
         .leftJoin(CarTable as any, eq(LocationTable.locationID, CarTable.locationID))
         .where(eq(LocationTable.locationID, locationID));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (results.length === 0) <span class="cstat-no" title="statement not covered" >return {message: "No cars in this Location"};</span></span>
+    if (results.length === 0) return {message: "No cars in this Location"};
 &nbsp;
-    const { location } = <span class="cstat-no" title="statement not covered" >results[0];</span>
+    const { location } = results[0];
 &nbsp;
-    const cars = <span class="cstat-no" title="statement not covered" >results.map(<span class="fstat-no" title="function not covered" >(r</span>ow) =&gt; <span class="cstat-no" title="statement not covered" >row.car)</span>.filter(Boolean);</span>
+    const cars = results.map((row) =&gt; row.car).filter(Boolean);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return {</span>
+    return {
         location,
         cars,
     };
@@ -256,7 +256,7 @@ export const getLocationWithCars = <span class="fstat-no" title="function not co
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-12T06:29:16.883Z
+                at 2025-06-12T14:24:43.259Z
             </div>
         <script src="prettify.js"></script>
         <script>

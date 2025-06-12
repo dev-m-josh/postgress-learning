@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.09% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/22</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.05% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,59 +90,59 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {db} from "../drizzle/db"
 import { CarTable, TSCarInsert, TSCar, BookingsTable } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 &nbsp;
-export const getAllCars = <span class="fstat-no" title="function not covered" >async </span>(): Promise&lt;TSCar[]&gt; =&gt; {
-<span class="cstat-no" title="statement not covered" >    return await db.select().from(CarTable);</span>
+export const getAllCars = async (): Promise&lt;TSCar[]&gt; =&gt; {
+    return await db.select().from(CarTable);
 };
 &nbsp;
-export const getCarById = <span class="fstat-no" title="function not covered" >async </span>(id: number): Promise&lt;TSCar | null&gt; =&gt; {
-    const car = <span class="cstat-no" title="statement not covered" >await db.select().from(CarTable).where(eq(CarTable.carID, id)).limit(1);</span>
-<span class="cstat-no" title="statement not covered" >    return car.length ? car[0] : null;</span>
+export const getCarById = async (id: number): Promise&lt;TSCar | null&gt; =&gt; {
+    const car = await db.select().from(CarTable).where(eq(CarTable.carID, id)).limit(1);
+    return car.length ? car[0] : null;
 };
 &nbsp;
-export const createCar = <span class="fstat-no" title="function not covered" >async </span>(carData: TSCarInsert): Promise&lt;TSCar&gt; =&gt; {
-    const [newCar] = <span class="cstat-no" title="statement not covered" >await db.insert(CarTable).values(carData).returning();</span>
-<span class="cstat-no" title="statement not covered" >    return newCar;</span>
+export const createCar = async (carData: TSCarInsert): Promise&lt;TSCar&gt; =&gt; {
+    const [newCar] = await db.insert(CarTable).values(carData).returning();
+    return newCar;
 };
 &nbsp;
-export const updateCar = <span class="fstat-no" title="function not covered" >async </span>(id: number, carData: Partial&lt;TSCarInsert&gt;): Promise&lt;TSCar | null&gt; =&gt; {
-    const updated = <span class="cstat-no" title="statement not covered" >await db.update(CarTable).set(carData).where(eq(CarTable.carID, id)).returning();</span>
-<span class="cstat-no" title="statement not covered" >    return updated.length ? updated[0] : null;</span>
+export const updateCar = async (id: number, carData: Partial&lt;TSCarInsert&gt;): Promise&lt;TSCar | null&gt; =&gt; {
+    const updated = await db.update(CarTable).set(carData).where(eq(CarTable.carID, id)).returning();
+    return updated.length ? updated[0] : null;
 };
 &nbsp;
-export const deleteCar = <span class="fstat-no" title="function not covered" >async </span>(id: number): Promise&lt;boolean&gt; =&gt; {
-    const result = <span class="cstat-no" title="statement not covered" >await db.delete(CarTable).where(eq(CarTable.carID, id)).returning();</span>
-<span class="cstat-no" title="statement not covered" >    return result.length &gt; 0;</span>
+export const deleteCar = async (id: number): Promise&lt;boolean&gt; =&gt; {
+    const result = await db.delete(CarTable).where(eq(CarTable.carID, id)).returning();
+    return result.length &gt; 0;
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -151,7 +151,7 @@ export const deleteCar = <span class="fstat-no" title="function not covered" >as
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-12T06:01:21.593Z
+                at 2025-06-12T14:27:39.306Z
             </div>
         <script src="../prettify.js"></script>
         <script>
