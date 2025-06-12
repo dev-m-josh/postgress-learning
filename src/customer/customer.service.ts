@@ -5,17 +5,8 @@ export const getAllCustomers = async () => {
     return await db.select().from(CustomerTable);
 };
 
-
 export const getCustomerById = async (id: number) => {
     const result = await db.select().from(CustomerTable).where(eq(CustomerTable.customerID, id));
-    return result[0];
-};
-
-export const createCustomer = async (data: TSCustomerInsert) => {
-    const result = await db.insert(CustomerTable).values({
-        ...data,
-        isAdmin: data.isAdmin || false,
-    }).returning();
     return result[0];
 };
 

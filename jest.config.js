@@ -12,5 +12,6 @@ module.exports = {
         "/node_modules/",
         "src/drizzle/db.ts",
         "src/drizzle/schema.ts",
+        "src/mailer/mailer.ts",
     ],
 };

@@ -11,6 +11,8 @@ import {
     getLocationDetails
 } from "../../location/location.controller";
 
+// import app from "../../../src/server"
+
 const app = express();
 app.use(express.json());
 app.get("/locations", getAllLocations);
