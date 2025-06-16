@@ -1,4 +1,3 @@
-// src/__tests__/integration/auth.controller.test.ts
 
 import request from "supertest";
 import express from "express";

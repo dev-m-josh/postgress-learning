@@ -1,4 +1,3 @@
-// src/__tests__/auth.service.test.ts
 import * as AuthService from "../../auth/auth.service";
 import { db } from "../../drizzle/db";
 import bcrypt from "bcryptjs";

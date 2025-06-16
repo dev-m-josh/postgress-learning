@@ -1,4 +1,3 @@
-// booking.service.test.ts
 import {
     getBookingDetailsById,
     getBookingWithPayment,

@@ -10,7 +10,7 @@ import {
     deleteMaintenance
 } from "../../mantainance/maintenance.controller";
 
-// Step 1: Set up a minimal Express app for testing
+//minimal Express app for testing
 const app = express();
 app.use(express.json());
 app.get("/maintenance", getAllMaintenanceRecords);
@@ -19,7 +19,7 @@ app.post("/maintenance", createMaintenance as any);
 app.put("/maintenance/:id", updateMaintenance as any);
 app.delete("/maintenance/:id", deleteMaintenance as any);
 
-// Step 2: Mock the car service
+// Mock the car service
 jest.mock("../../mantainance/maintenance.service");
 
 beforeAll(() => {
