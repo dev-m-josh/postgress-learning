@@ -4,7 +4,7 @@ import { authenticateToken } from "../middleware/auth.middleware";
 import { requireAdmin } from "../middleware/admin.middleware";
 
 const reservation = (app: Express) => {
-    app.route("/reservations").get(authenticateToken, requireAdmin, async (req, res, next) => {
+    app.route("/reservations").get(authenticateToken as any, requireAdmin as any, async (req, res, next) => {
         try {
             await ReservationController.getAllReservations(req, res);
         } catch (error) {
@@ -12,7 +12,7 @@ const reservation = (app: Express) => {
         }
     });
 
-    app.route("/reservations/:id").get(authenticateToken, async (req, res, next) => {
+    app.route("/reservations/:id").get(authenticateToken as any, async (req, res, next) => {
         try {
             await ReservationController.getReservationById(req, res);
         } catch (error) {
@@ -20,7 +20,7 @@ const reservation = (app: Express) => {
         }
     });
 
-    app.route("/reservations/:id").put(authenticateToken, async (req, res, next) => {
+    app.route("/reservations/:id").put(authenticateToken as any, async (req, res, next) => {
         try {
             await ReservationController.updateReservation(req, res);
         } catch (error) {
@@ -36,7 +36,7 @@ const reservation = (app: Express) => {
         }
     });
 
-    app.route("/reservations").post(authenticateToken, async (req, res, next) => {
+    app.route("/reservations").post(authenticateToken as any, async (req, res, next) => {
         try {
             await ReservationController.createReservation(req, res);
         } catch (error) {

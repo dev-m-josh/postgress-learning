@@ -19,4 +19,4 @@ export const disconnectDB = async () => {
     console.log("Disconnected from the database");
 };
 
-export { db };
+export { db, client };
