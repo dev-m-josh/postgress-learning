@@ -26,16 +26,20 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@types/cors": "^2.8.19",
     "@types/nodemailer": "^6.4.17",
     "@types/supertest": "^6.0.3",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.43.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "nodemailer": "^7.0.3",
     "pg": "^8.16.0",
-    "supertest": "^7.1.1"
+    "react-hook-form": "^7.58.1",
+    "supertest": "^7.1.1",
+    "yup": "link:@hookform/resolvers/yup"
   }
 }

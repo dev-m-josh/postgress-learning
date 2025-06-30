@@ -1,5 +1,6 @@
 import { Express } from "express";
 import * as CustomerController from "./customer.controller";
+import { authenticateToken } from "../middleware/auth.middleware";
 
 const customer = (app: Express) => {
 
@@ -23,7 +24,7 @@ const customer = (app: Express) => {
         }
     );
 
-    app.route("/customer/:id").put(
+    app.route("/customer/update/:id").put(
         async (req, res, next) => {
             try {
                 await CustomerController.updateCustomer(req, res);
@@ -33,7 +34,7 @@ const customer = (app: Express) => {
         }
     );
 
-    app.route("/customer/:id").delete(
+    app.route("/customer/delete/:id").delete(
         async (req, res, next) => {
             try {
                 await CustomerController.deleteCustomer(req, res);

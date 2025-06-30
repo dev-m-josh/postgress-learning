@@ -8,11 +8,11 @@ import { sendWelcomeEmail } from "../mailer/mailer";
 import crypto from "crypto";
 
 const JWT_SECRET = process.env.JWT_SECRET || "youcanguessit";
+const verificationCode = crypto.randomBytes(3).toString("hex").toUpperCase();
 
 export const registerUser = async (data: Omit<TSCustomerInsert, "customerID">) => {
     const hashedPassword = await bcrypt.hash(data.password, 10);
 
-    const verificationCode = crypto.randomBytes(3).toString("hex").toUpperCase();
 
     const newCustomer: TSCustomerInsert = {
         ...data,
@@ -46,11 +46,13 @@ export const loginUser = async (email: string, password: string) => {
         .then((res) => res[0]);
 
     if (!user) {
+        console.error("User not found for email:", email);
         throw new Error("Invalid email or password");
     }
 
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
+        console.error("Password mismatch for user:", email);
         throw new Error("Invalid email or password");
     }
 

@@ -9,10 +9,12 @@ import auth from "./auth/auth.routes";
 import payment from "./payment/payment.routes";
 import maintenanceRoutes from "./mantainance/mantainace.route";
 import insurance from "./insurance/insurance.routes";
+import cors from "cors";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 
 // Use routes

@@ -25,3 +25,13 @@ export const deleteCar = async (id: number): Promise<boolean> => {
     const result = await db.delete(CarTable).where(eq(CarTable.carID, id)).returning();
     return result.length > 0;
 };
+
+export const togleCarAvailability = async (id: number): Promise<TSCar | null> => {
+    const car = await getCarById(id);
+    if (!car) {
+        return null;
+    }
+
+    const updatedCar = await updateCar(id, { availability: !car.availability });
+    return updatedCar;
+};

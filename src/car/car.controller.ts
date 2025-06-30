@@ -57,3 +57,16 @@ export const deleteCar = async (req: Request, res: Response) => {
         res.status(500).json({ error: "Failed to delete car" });
     }
 };
+
+export const toggleCarAvailability = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        const updatedCar = await CarService.togleCarAvailability(Number(id));
+        if (!updatedCar) {
+            return res.status(404).json({ error: "Car not found" });
+        }
+        res.json(updatedCar);
+    } catch (error) {
+        res.status(500).json({ error: "Failed to toggle car availability" });
+    }
+};
