@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
-  "generate": "drizzle-kit generate",
-  "migrate": "tsx src/drizzle/migrate.ts",
-  "seed": "tsx src/drizzle/seed.ts",
-  "dev": "tsx src/server.ts",
-  "build": "tsc",
-  "start": "node dist/server.js",
-  "test": "jest --coverage"
-},
+  "scripts": {
+    "generate": "drizzle-kit generate",
+    "migrate": "tsx src/drizzle/migrate.ts",
+    "seed": "tsx src/drizzle/seed.ts",
+    "dev": "tsx src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest --coverage",
+    "push": "drizzle-kit push",
+    "studio": "drizzle-kit studio"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -28,6 +30,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
     "@types/cors": "^2.8.19",
     "@types/nodemailer": "^6.4.17",
     "@types/supertest": "^6.0.3",
