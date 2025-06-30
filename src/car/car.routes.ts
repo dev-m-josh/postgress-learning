@@ -20,7 +20,7 @@ const car = (app: Express) => {
         }
     });
 
-    app.route("/cars").post(authenticateToken as any, requireAdmin as any, async (req, res, next) => {
+    app.route("/cars").post(async (req, res, next) => {
         try {
             await CarController.createCar(req, res);
         } catch (error) {
@@ -28,7 +28,7 @@ const car = (app: Express) => {
         }
     });
 
-    app.route("/cars/:id").put(authenticateToken as any, requireAdmin as any, async (req, res, next) => {
+    app.route("/cars/:id").put(async (req, res, next) => {
         try {
             await CarController.updateCar(req, res);
         } catch (error) {
@@ -36,13 +36,25 @@ const car = (app: Express) => {
         }
     });
 
-    app.route("/cars/:id").delete(authenticateToken as any, requireAdmin as any, async (req, res, next) => {
+    app.route("/cars/:id").delete( async (req, res, next) => {
         try {
             await CarController.deleteCar(req, res);
         } catch (error) {
             next(error);
         }
     });
+
+    // app.route("/cars/toggle-availability/:id").put( async (req, res, next) => {
+    //     try {
+    //         const updatedCar = await CarController.toggleCarAvailability(req, res);
+    //         if (!updatedCar) {
+    //             return res.status(404).json({ error: "Car not found" });
+    //         }
+    //         res.json(updatedCar);
+    //     } catch (error) {
+    //         next(error);
+    //     }
+    // });
 
 };
 
